@@ -15,5 +15,7 @@ return [
     'remember' => 'Remember Me',
     'login'    => 'Login',
     'logout'   => 'Logout',
+
+    'home' => 'Home'
     
 ];
