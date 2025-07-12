@@ -19,10 +19,21 @@ class UpdateServiceRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+   public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string',
+            'icon' => 'required|string',
+            'description' => 'required|string'
+        ];
+    }
+
+    public function attributes() : array
+    {
+        return [
+            'title' => __('keywords.title'),
+            'icon' => __('keywords.icon'),
+            'description' => __('keywords.description')
         ];
     }
 }

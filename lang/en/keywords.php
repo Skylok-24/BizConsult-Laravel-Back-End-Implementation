@@ -16,6 +16,16 @@ return [
     'login'    => 'Login',
     'logout'   => 'Logout',
 
-    'home' => 'Home'
+    'home' => 'Home',
+    'services' => 'Services',
+    'title' =>'Title',
+    'icon' => 'Icon',
+    'add_new' => 'Add New',
+    'actions' => 'Actions',
+    'description' => 'Description',
+    'submit' => 'Submit',
+    'show_service' => 'Show Service',
+    'edit_service' => 'Edit Service',
+    'update' => 'Update',
     
 ];
