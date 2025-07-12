@@ -27,5 +27,6 @@ return [
     'show_service' => 'Show Service',
     'edit_service' => 'Edit Service',
     'update' => 'Update',
-    
+    'features' => 'Features',
+    'no_record_found' => ' No Records Found'
 ];

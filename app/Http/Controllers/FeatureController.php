@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
-use App\Http\Requests\StoreServiceRequest;
-use App\Http\Requests\UpdateServiceRequest;
+use App\Models\Feature;
+use App\Http\Requests\StoreFeatureRequest;
+use App\Http\Requests\UpdateFeatureRequest;
 
-class ServiceController extends Controller
+class FeatureController extends Controller
 {
-    private const DIR = "admin.services.";
+    private const DIR = "admin.features.";
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $services = Service::paginate(config('pagination.count'));
+        $features = Feature::paginate(config('pagination.count'));
         return view(self::DIR .'index',get_defined_vars());
     }
 
@@ -29,17 +29,17 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreServiceRequest $request)
+    public function store(StoreFeatureRequest $request)
     {
         $data = $request->validated();
-        Service::create($data);
+        Feature::create($data);
         return to_route( self::DIR . 'index')->with('status','Your record created successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Service $service)
+    public function show(Feature $feature)
     {
         return view( self::DIR . 'show',get_defined_vars());
     }
@@ -47,7 +47,7 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit(Feature $feature)
     {
         return view( self::DIR . 'edit',get_defined_vars());
     }
@@ -55,19 +55,19 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateServiceRequest $request, Service $service)
+    public function update(UpdateFeatureRequest $request, Feature $feature)
     {
         $data = $request->validated();
-        $service->update($data);
+        $feature->update($data);
         return to_route( self::DIR . 'index')->with('status','Your record updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy(Feature $feature)
     {
-        $service->delete();
+        $feature->delete();
         return to_route(self::DIR . 'index')->with('status','Your record deleted successfully');
     }
 }
