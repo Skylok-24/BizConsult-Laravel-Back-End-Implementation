@@ -1,9 +1,15 @@
 <?php
 
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\TestmonialController;
 use App\Models\Feature;
+use App\Models\Message;
 use Illuminate\Support\Facades\Route;
 use \Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -19,13 +25,13 @@ use \Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
 
 // front routes
-Route::name('front.')->group(function() {
-    Route::view('/','front.index')->name('index');
-    Route::view('/about','front.about')->name('about');
-    Route::view('/service','front.service')->name('service');
-    Route::view('/contact','front.contact')->name('contact');
+Route::name('front.')->controller(FrontController::class)->group(function() {
+    Route::get('/','index')->name('index');
+    Route::get('/about','about')->name('about');
+    Route::get('/service','service')->name('service');
+    Route::get('/contact','contact')->name('contact');
+    Route::post('/subscribe','subscribe')->name('subscribe');
 });
-
 
 // admin routes
 Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')->middleware([ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ])->group(function () {
@@ -40,6 +46,26 @@ Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')->midd
         // features
         Route::controller(FeatureController::class)->group(function () {
             Route::resource('features',FeatureController::class);
+        });
+
+        // messages
+        Route::controller(MessageController::class)->group(function () {
+            Route::resource('messages',MessageController::class)->only(['index','show','destroy']);
+        });
+
+        // subscribers
+        Route::controller(SubscriberController::class)->group(function () {
+            Route::resource('subscribers',SubscriberController::class)->only(['index','destroy']);
+        });
+
+        // testmonials
+        Route::controller(TestmonialController::class)->group(function () {
+            Route::resource('testmonials',TestmonialController::class);
+        });
+
+        // settings
+        Route::controller(SettingController::class)->group(function () {
+            Route::resource('settings',SettingController::class)->only(['index','update']);
         });
     });
     Route::view('/login','admin.auth.login')->name('login');

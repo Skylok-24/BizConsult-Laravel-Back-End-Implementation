@@ -36,6 +36,10 @@
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <x-sidebar-tab href="{{ route('admin.services.index') }}" icon="fe-codesandbox" keyword="{{ __('keywords.services') }}"></x-sidebar-tab>
             <x-sidebar-tab href="{{ route('admin.features.index') }}" icon="fe-bookmark" keyword="{{ __('keywords.features') }}"></x-sidebar-tab>
+            <x-sidebar-tab href="{{ route('admin.messages.index') }}" icon="fe-message-square" keyword="{{ __('keywords.messages') }}"></x-sidebar-tab>
+            <x-sidebar-tab href="{{ route('admin.subscribers.index') }}" icon="fe-users" keyword="{{ __('keywords.subscribers') }}"></x-sidebar-tab>
+            <x-sidebar-tab href="{{ route('admin.testmonials.index') }}" icon="fe-message-circle" keyword="{{ __('keywords.testmonials') }}"></x-sidebar-tab>
+            <x-sidebar-tab href="{{ route('admin.settings.index') }}" icon="fe-settings" keyword="{{ __('keywords.settings') }}"></x-sidebar-tab>
         </ul>
         
     </nav>
