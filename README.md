@@ -1,6 +1,6 @@
 # BizConsult Laravel Back-End
 
-![BizConsult Hero Screenshot](image1)
+![BizConsult Hero](Screenshot%20From%202025-11-14%2000-54-04.png)
 
 A Laravel 10 (PHP 8.1+) backend powering the BizConsult corporate/consulting website template, converting a static Bootstrap 5 front-end into localized, database‑driven pages with an authenticated admin dashboard.
 
